@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funny Quiz</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');body {
+        background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+        font-family: 'Fredoka One', cursive;
+        color: #333;
+        padding: 30px;
+    }
+    .quiz-container {
+        max-width: 700px;
+        margin: auto;
+        background: #ffffffcc;
+        padding: 30px;
+        border-radius: 25px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        animation: slideIn 1s ease-out;
+    }
+    @keyframes slideIn {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+    h1 {
+        text-align: center;
+        color: #ff4081;
+        font-size: 40px;
+    }
+    .question {
+        margin: 25px 0;
+        font-size: 22px;
+        color: #6a1b9a;
+    }
+    .option {
+        margin: 12px 0;
+        padding: 12px 20px;
+        background-color: #e1f5fe;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+        border: 2px solid transparent;
+    }
+    .option:hover {
+        background-color: #b3e5fc;
+        border-color: #0288d1;
+    }
+    .correct {
+        background-color: #c8e6c9 !important;
+        border-color: #388e3c !important;
+    }
+    .wrong {
+        background-color: #ffcdd2 !important;
+        border-color: #d32f2f !important;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 16px;
+        color: #777;
+    }
+</style>
+
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Funny Quiz</h1><div class="question">
+        1. Kya khati ho?
+        <div class="option" onclick="checkAnswer(this, 'A', 0)">A. Gu</div>
+        <div class="option" onclick="checkAnswer(this, 'B', 0)">B. Roti</div>
+    </div>
+
+    <div class="question">
+        2. Kha soti ho?
+        <div class="option" onclick="checkAnswer(this, 'A', 1)">A. Gobar pr</div>
+        <div class="option" onclick="checkAnswer(this, 'B', 1)">B. Bad pr</div>
+    </div>
+
+    <div class="question">
+        3. Kisse pyar krti ho?
+        <div class="option" onclick="checkAnswer(this, 'A', 2)">A. Prince se</div>
+        <div class="option" onclick="checkAnswer(this, 'B', 2)">B. Gadhe se</div>
+    </div>
+
+    <div class="question">
+        4. Kaha jati ho?
+        <div class="option" onclick="checkAnswer(this, 'A', 3)">A. School</div>
+        <div class="option" onclick="checkAnswer(this, 'B', 3)">B. Gatar me</div>
+    </div>
+
+    <div class="footer">Designed with fun by Prince</div>
+</div>
+
+<script>
+    const correctAnswers = ['A', 'A', 'B', 'B'];
+
+    function checkAnswer(element, selected, index) {
+        const parent = element.parentElement;
+        const options = parent.querySelectorAll('.option');
+
+        options.forEach(opt => {
+            opt.classList.remove('correct', 'wrong');
+        });
+
+        if (selected === correctAnswers[index]) {
+            element.classList.add('correct');
+        } else {
+            element.classList.add('wrong');
+        }
+    }
+</script>
+
+</body>
+</html>
